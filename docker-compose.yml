@@ -1,0 +1,43 @@
+x-docker-project: votingapp
+services:
+  redis:
+    image: redis:alpine
+    command: redis-server --appendonly yes
+    ports:
+      - "6379"
+  db:
+    image: postgres:9.6
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+  vote:
+    image: dockersamples/examplevotingapp_vote:before
+    ports:
+      - target: 80
+        published: 80
+        x-ingress:
+          hosts:
+            - vote.localhost
+    labels:
+      example.com/container-only: foobar
+      example.com/container-only2: foobar
+    deploy:
+      replicas: 2
+      labels:
+        example.com/foo: bar
+  result:
+    image: dockersamples/examplevotingapp_result
+    ports:
+      - target: 80
+        published: 80
+        x-ingress:
+          hosts:
+            - results.localhost
+    deploy:
+      replicas: 1
+  worker:
+    image: mikesir87/votingapp-worker
+    deploy:
+      replicas: 2
