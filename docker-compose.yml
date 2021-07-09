@@ -27,6 +27,9 @@ services:
       replicas: 2
       labels:
         example.com/foo: bar
+    environment:
+      OPTION_A: Ice cream
+      OPTION_B: Cheesecake
   result:
     image: dockersamples/examplevotingapp_result
     ports:
