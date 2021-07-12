@@ -1,0 +1,22 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: compose-helm-chart
+  namespace: default
+spec:
+  interval: 5m
+  url: https://code.vt.edu/mikesir/compose-helm.git
+  ref:
+    branch: master
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmChart
+metadata:
+  name: podinfo
+  namespace: default
+spec:
+  chart: ./podinfo
+  sourceRef:
+    name: compose-helm-chart
+    kind: GitRepository
+  interval: 1m

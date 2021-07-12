@@ -1,0 +1,5 @@
+resources:
+  - ./crds.yaml
+  - ./components.yaml
+  # - ./tenantRepo.yaml
+  # - ./helmChart.yaml

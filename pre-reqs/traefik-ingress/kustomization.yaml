@@ -1,0 +1,5 @@
+namespace: traefik
+resources:
+  - ./namespace.yaml
+  - ./traefik.yaml
+  - ./crds.yaml
