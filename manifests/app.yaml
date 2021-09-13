@@ -7,7 +7,7 @@ metadata:
   labels:
     app.kubernetes.io/name: db
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -21,7 +21,7 @@ metadata:
   labels:
     app.kubernetes.io/name: redis
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -35,7 +35,7 @@ metadata:
   labels:
     app.kubernetes.io/name: result
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -49,7 +49,7 @@ metadata:
   labels:
     app.kubernetes.io/name: vote
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     example.com/foo: bar
@@ -64,7 +64,7 @@ metadata:
   labels:
     app.kubernetes.io/name: worker
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -74,12 +74,10 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: sh.helm.release.v1.votingapp
+  name: votingapp
   labels:
-    name: votingapp
-    owner: helm
-data:
-  release: eyJpbmZvIjp7InN0YXR1cyI6ImRlcGxveWVkIn0sIm5hbWUiOiJ2b3RpbmdhcHAiLCJ2ZXJzaW9uIjoxfQ==
+    com.docker.compose.project: votingapp
+    com.docker.compose.manual: "true"
 ---
 # Source: compose-deployer/templates/service-expose.yaml
 apiVersion: v1
@@ -89,7 +87,7 @@ metadata:
   labels:
     app.kubernetes.io/name: db
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -111,7 +109,7 @@ metadata:
   labels:
     app.kubernetes.io/name: redis
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -133,7 +131,7 @@ metadata:
   labels:
     app.kubernetes.io/name: result
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -155,7 +153,7 @@ metadata:
   labels:
     app.kubernetes.io/name: vote
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     example.com/foo: bar
@@ -178,7 +176,7 @@ metadata:
   labels:
     app.kubernetes.io/name: db
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -194,7 +192,7 @@ spec:
       labels:
         app.kubernetes.io/name: db
         app.kubernetes.io/instance: RELEASE-NAME
-        helm.sh/chart: compose-deployer-0.8.0
+        helm.sh/chart: compose-deployer-0.9.0
         app.kubernetes.io/version: "1.16.0"
         app.kubernetes.io/managed-by: Helm
         com.docker.compose.project: votingapp
@@ -220,7 +218,7 @@ metadata:
   labels:
     app.kubernetes.io/name: redis
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -236,7 +234,7 @@ spec:
       labels:
         app.kubernetes.io/name: redis
         app.kubernetes.io/instance: RELEASE-NAME
-        helm.sh/chart: compose-deployer-0.8.0
+        helm.sh/chart: compose-deployer-0.9.0
         app.kubernetes.io/version: "1.16.0"
         app.kubernetes.io/managed-by: Helm
         com.docker.compose.project: votingapp
@@ -261,7 +259,7 @@ metadata:
   labels:
     app.kubernetes.io/name: result
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -277,7 +275,7 @@ spec:
       labels:
         app.kubernetes.io/name: result
         app.kubernetes.io/instance: RELEASE-NAME
-        helm.sh/chart: compose-deployer-0.8.0
+        helm.sh/chart: compose-deployer-0.9.0
         app.kubernetes.io/version: "1.16.0"
         app.kubernetes.io/managed-by: Helm
         com.docker.compose.project: votingapp
@@ -298,7 +296,7 @@ metadata:
   labels:
     app.kubernetes.io/name: vote
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     example.com/foo: bar
@@ -315,7 +313,7 @@ spec:
       labels:
         app.kubernetes.io/name: vote
         app.kubernetes.io/instance: RELEASE-NAME
-        helm.sh/chart: compose-deployer-0.8.0
+        helm.sh/chart: compose-deployer-0.9.0
         app.kubernetes.io/version: "1.16.0"
         app.kubernetes.io/managed-by: Helm
         example.com/foo: bar
@@ -339,7 +337,7 @@ metadata:
   labels:
     app.kubernetes.io/name: worker
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -355,7 +353,7 @@ spec:
       labels:
         app.kubernetes.io/name: worker
         app.kubernetes.io/instance: RELEASE-NAME
-        helm.sh/chart: compose-deployer-0.8.0
+        helm.sh/chart: compose-deployer-0.9.0
         app.kubernetes.io/version: "1.16.0"
         app.kubernetes.io/managed-by: Helm
         com.docker.compose.project: votingapp
@@ -374,7 +372,7 @@ metadata:
   labels:
     app.kubernetes.io/name: result
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
@@ -400,7 +398,7 @@ metadata:
   labels:
     app.kubernetes.io/name: vote
     app.kubernetes.io/instance: RELEASE-NAME
-    helm.sh/chart: compose-deployer-0.8.0
+    helm.sh/chart: compose-deployer-0.9.0
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
     com.docker.compose.project: votingapp
