@@ -20,6 +20,9 @@ services:
         x-ingress:
           hosts:
             - vote.localhost
+    environment:
+      OPTION_A: Ice cream
+      OPTION_B: Brownies
     labels:
       example.com/container-only: foobar
       example.com/container-only2: foobar
