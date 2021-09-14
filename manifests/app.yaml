@@ -328,6 +328,11 @@ spec:
           image: dockersamples/examplevotingapp_vote:before
           ports:
             - containerPort: 80
+          env:
+            - name: OPTION_A
+              value: Ice cream
+            - name: OPTION_B
+              value: Brownies
 ---
 # Source: compose-deployer/templates/deployment.yaml
 apiVersion: apps/v1
